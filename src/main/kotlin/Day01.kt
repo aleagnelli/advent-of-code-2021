@@ -6,8 +6,7 @@ object Day01 {
         return input
             .map { it.toInt() }
             .zipWithNext()
-            .filter { it.second > it.first }
-            .size
+            .count { it.second > it.first }
     }
 
     fun part2(input: List<String>): Int {
@@ -19,7 +18,6 @@ object Day01 {
             .map { it.sum() }
         return depthsWindows
             .zipWithNext()
-            .filter { it.second > it.first }
-            .size
+            .count { it.second > it.first }
     }
 }
