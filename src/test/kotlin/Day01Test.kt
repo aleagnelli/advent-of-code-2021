@@ -1,14 +1,10 @@
 import org.junit.jupiter.api.Test
-import java.io.File
 import kotlin.test.assertEquals
 
 class Day01Test {
     private val sample = listOf("199", "200", "208", "210", "200", "207", "240", "269", "260", "263")
 
-    private val puzzleInput = run {
-        val url = javaClass.getResource("day_01.txt") ?: error("input file not found")
-        File(url.toURI()).readLines()
-    }
+    private val puzzleInput = readLines(javaClass, "day_01.txt")
 
     @Test
     fun testSampleInputPart1() {
