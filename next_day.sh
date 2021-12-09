@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-last_day=$(find src/main/kotlin/Day* | sort -r | head -n1 | grep -oE '([0-9]){2}')
+last_day="10#$(find src/main/kotlin/Day* | sort -r | head -n1 | grep -oE '([0-9]){2}')"
 next_day=$((last_day + 1))
 day=$(printf "%02d" "${next_day}")
 
