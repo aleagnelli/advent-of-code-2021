@@ -1,5 +1,5 @@
 object Day06 {
-    data class School(val fish: Map<Int, Long>) {
+    private data class School(val fish: Map<Int, Long>) {
         fun nextDay(): School {
             val spawningFish = fish[0] ?: 0
             val shifted = (0..7).associateWith { fish[it + 1] ?: 0 }

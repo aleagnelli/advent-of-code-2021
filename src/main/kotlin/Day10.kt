@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.Stack
 
 object Day10 {
     private sealed interface LineStatus
