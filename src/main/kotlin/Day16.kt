@@ -66,7 +66,7 @@ object Day16 {
             val groups = literalGroups.chunked(5).let { chunked ->
                 val oneGroups = chunked.takeWhile { it.first() == '1' }
                 val last = chunked.drop(oneGroups.size).first()
-                oneGroups.toMutableList().also { it.add(last) }
+                oneGroups + last
             }
 
             val literalBinary = groups.joinToString(separator = "") { it.drop(1) }

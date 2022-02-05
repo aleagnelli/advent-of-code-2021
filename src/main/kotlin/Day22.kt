@@ -56,15 +56,16 @@ object Day22 {
         val allCubes = parseCubes(input)
             .filter { it.x.min in (-50..50) }
             .fold(emptyList<Cube>()) { cubes, currentCube ->
-                cubes.toMutableList().also { it.addAll(intersectAll(cubes, currentCube)) }
+                cubes + intersectAll(cubes, currentCube)
             }
         return countCube(allCubes)
     }
 
     fun part2(input: List<String>): Long {
-        val allCubes = parseCubes(input).fold(emptyList<Cube>()) { cubes, currentCube ->
-            cubes.toMutableList().also { it.addAll(intersectAll(cubes, currentCube)) }
-        }
+        val allCubes = parseCubes(input)
+            .fold(emptyList<Cube>()) { cubes, currentCube ->
+                cubes + intersectAll(cubes, currentCube)
+            }
         return countCube(allCubes)
     }
 }

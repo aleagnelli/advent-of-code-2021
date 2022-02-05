@@ -8,7 +8,7 @@ enum class Amphipod(val index: Int) {
 
 data class Room(val spots: List<Amphipod>) {
     fun canMoveThere(amphipod: Amphipod) = spots.all { it == amphipod }
-    fun add(amphipod: Amphipod) = Room(spots.toMutableList().also { it.add(amphipod) })
+    fun add(amphipod: Amphipod) = Room(spots + amphipod)
     fun allCorrect(i: Int) = spots.all { it.index == i }
     fun moveOut(): Room = Room(spots.drop(1))
 }
@@ -41,7 +41,7 @@ class Solution(private val roomsSize: Int) {
                     rooms.toMutableList().also {
                         it[hallwaySpot.value!!.index] = it[hallwaySpot.value!!.index].add(hallwaySpot.value!!)
                     },
-                    hallway.toMutableList().also { it[hallwaySpot.index] = null }
+                    hallway.update(hallwaySpot.index, null)
                 )
             }.toList()
     }
@@ -62,7 +62,7 @@ class Solution(private val roomsSize: Int) {
                             rooms.toMutableList().also {
                                 it[rIndex] = it[rIndex].moveOut()
                             },
-                            hallway.toMutableList().also { it[hallwaySpot.index] = room.spots.first() }
+                            hallway.update(hallwaySpot.index, room.spots.first())
                         )
                     }.toList()
             }
